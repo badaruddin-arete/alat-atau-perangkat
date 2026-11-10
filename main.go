@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/badaruddin-arete/alat-atau-perangkat/kasus"
+	"github.com/badaruddin-arete/alat-atau-perangkat/laporan"
 	"github.com/badaruddin-arete/alat-atau-perangkat/rubrik"
 )
 
@@ -22,6 +23,8 @@ const bantuan = `Pemakaian: alat-atau-perangkat <perintah> [id]
   daftar        semua kasus beserta posisinya di spektrum
   nilai <id>    rincian skor dan alasan satu kasus
   banding <id>  bandingkan kasus dengan pasangannya: apa yang didapat, apa yang tergeser
+  kepekaan      seberapa tahan hasil bila bobot sumbu diubah
+  laporan       laporan perbandingan lengkap dalam Markdown
   sumbu         delapan sumbu rubrik
   bantuan       pesan ini
 `
@@ -44,6 +47,12 @@ func jalankan(arg []string, keluar, galat io.Writer) int {
 	switch arg[0] {
 	case "daftar":
 		cetakDaftar(keluar, daftar)
+		return 0
+	case "laporan":
+		laporan.Tulis(keluar, daftar, kasus.Pasangan(daftar))
+		return 0
+	case "kepekaan":
+		cetakKepekaan(keluar, daftar)
 		return 0
 	case "nilai", "banding":
 		if len(arg) < 2 {
@@ -135,5 +144,21 @@ func cetakSelisih(w io.Writer, judul string, xs []rubrik.Selisih) {
 	fmt.Fprintf(w, "%s:\n", judul)
 	for _, s := range xs {
 		fmt.Fprintf(w, "  %s %d -> %d: %s\n", s.Sumbu.Nama, s.Fokal.Skor, s.Lawan.Skor, s.Lawan.Alasan)
+	}
+}
+
+func cetakKepekaan(w io.Writer, daftar []rubrik.Kasus) {
+	pasangan := kasus.Pasangan(daftar)
+	rentang, kp := rubrik.Kepekaan(daftar, pasangan)
+	fmt.Fprintf(w, "Bobot tiap sumbu 0.5, 1, atau 2: %d kombinasi.\n\n", kp[0].JumlahBobot)
+	fmt.Fprintln(w, "Pasangan (urutan bertahan, titik balik dalam poin skor):")
+	for _, p := range kp {
+		fmt.Fprintf(w, "  %-17s -> %-17s %5.1f%%  %d poin\n", p.Fokal.ID, p.Lawan.ID,
+			100*float64(p.Bertahan)/float64(p.JumlahBobot), rubrik.TitikBalik(p.Fokal, p.Lawan))
+	}
+	fmt.Fprintln(w, "\nKasus (rentang indeks, golongan tetap):")
+	for _, r := range rentang {
+		fmt.Fprintf(w, "  %-17s %+.2f .. %+.2f  %5.1f%%\n", r.Kasus.ID, r.Min, r.Maks,
+			100*float64(r.GolonganTetap)/float64(r.JumlahBobot))
 	}
 }

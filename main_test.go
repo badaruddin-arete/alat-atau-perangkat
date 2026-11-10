@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"os"
 	"strings"
 	"testing"
 )
@@ -104,5 +105,28 @@ func TestGarisSpektrum(t *testing.T) {
 		if got := garis(i); got != ingin {
 			t.Errorf("garis(%v) = %q", i, got)
 		}
+	}
+}
+
+// Laporan di docs/ harus sama persis dengan keluaran program,
+// supaya angka di README dan laporan tidak pernah basi.
+func TestLaporanTersimpanMutakhir(t *testing.T) {
+	keluar, _, kode := jalankanUji(t, "laporan")
+	if kode != 0 {
+		t.Fatalf("kode keluar = %d", kode)
+	}
+	tersimpan, err := os.ReadFile("docs/laporan.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(tersimpan) != keluar {
+		t.Fatal("docs/laporan.md basi; jalankan: go run . laporan > docs/laporan.md")
+	}
+}
+
+func TestPerintahKepekaan(t *testing.T) {
+	keluar, _, kode := jalankanUji(t, "kepekaan")
+	if kode != 0 || !strings.Contains(keluar, "6561 kombinasi") || !strings.Contains(keluar, "poin") {
+		t.Fatalf("kode %d, keluaran %q", kode, keluar)
 	}
 }
