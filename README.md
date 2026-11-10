@@ -6,7 +6,7 @@ Kalau sebuah alat membuat hidup lebih mudah, apa yang ikut hilang? Dan bisakah k
 
 Program baris perintah dalam Go ini menilai praktik sehari-hari fiktif, misalnya kopi tubruk dan kopi kapsul, pada delapan sumbu. Hasilnya adalah posisi tiap praktik di antara **benda fokal** dan **perangkat**, dengan alasan tertulis untuk setiap angka.
 
-> Status: dalam pengerjaan. Tahap ini baru memuat sumbu rubrik, bentuk data kasus, dan validasinya.
+> Status: dalam pengerjaan. Mesin rubrik dan delapan kasus fiktif sudah berjalan; uji kepekaan bobot dan laporan perbandingan menyusul.
 
 ## Gagasan
 
@@ -43,13 +43,21 @@ Empat sumbu ketersediaan mengikuti empat ciri yang dipakai Borgmann untuk mengga
 | Skor tanpa alasan ditolak | Penilaian harus bisa dibaca dan dibantah, bukan sekadar angka. |
 | Bidang JSON yang tidak dikenal ditolak | Tidak ada bobot atau penyesuaian tersembunyi yang bisa diselipkan ke data kasus. |
 | Validasi melaporkan semua masalah sekaligus | Penyusun kasus memperbaiki semuanya dalam satu kali baca. |
+| Indeks = (rata ketersediaan − rata keterlibatan) / 4 | Satu angka dari −1 (benda fokal) sampai +1 (perangkat) yang mudah dibaca, sementara kedua rata-rata tetap ditampilkan. |
+| Ambang golongan −0,5, −0,15, 0,15, 0,5 | Pilihan penyusun untuk memberi nama kasar, bukan batas alami. Angka indeks selalu ditampilkan di sampingnya. |
+| Kasus selalu berpasangan | Borgmann membaca perangkat sebagai pengganti sesuatu. Perbandingan pasangan menjawab "apa yang didapat dan apa yang tergeser", bukan sekadar peringkat. |
+| Sumbu yang bergerak berlawanan arah dilaporkan terpisah | Supaya rubrik tidak menyembunyikan hal yang tidak sesuai dugaan. |
+| Kasus ditanam ke program (`go:embed`) | Program berjalan dari satu berkas tanpa perlu menyalin data. |
 | Dua kelompok sumbu, bukan satu skor "baik" | Rubrik menggambarkan posisi, bukan menjatuhkan vonis bahwa praktik tertentu lebih baik. |
 
 ## Menjalankan
 
 ```bash
-go run . sumbu      # tampilkan delapan sumbu rubrik
-go test ./...       # jalankan semua uji
+go run . daftar                # semua kasus, urut dari paling fokal
+go run . nilai kopi-tubruk     # rincian skor dan alasan
+go run . banding kopi-tubruk   # apa yang didapat dan apa yang tergeser
+go run . sumbu                 # delapan sumbu rubrik
+go test ./...                  # jalankan semua uji
 ```
 
 ## Keterbatasan
