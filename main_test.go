@@ -52,8 +52,8 @@ func TestDaftarUrutDariFokal(t *testing.T) {
 		t.Fatalf("kode keluar = %d", kode)
 	}
 	baris := strings.Split(strings.TrimSpace(keluar), "\n")
-	if len(baris) != 9 {
-		t.Fatalf("ingin 1 judul + 8 kasus, dapat %d baris", len(baris))
+	if len(baris) != 13 {
+		t.Fatalf("ingin 1 judul + 12 kasus, dapat %d baris", len(baris))
 	}
 	if !strings.HasPrefix(baris[1], "tungku-kayu") {
 		t.Errorf("kasus paling fokal seharusnya tungku-kayu, dapat %q", baris[1])
@@ -128,5 +128,37 @@ func TestPerintahKepekaan(t *testing.T) {
 	keluar, _, kode := jalankanUji(t, "kepekaan")
 	if kode != 0 || !strings.Contains(keluar, "6561 kombinasi") || !strings.Contains(keluar, "poin") {
 		t.Fatalf("kode %d, keluaran %q", kode, keluar)
+	}
+}
+
+func TestLembarDanKisahTersimpanMutakhir(t *testing.T) {
+	for perintah, berkas := range map[string]string{"lembar": "penilaian/lembar-kosong.csv", "kisah": "penilaian/kisah.md"} {
+		keluar, _, kode := jalankanUji(t, perintah)
+		if kode != 0 {
+			t.Fatalf("%s: kode keluar = %d", perintah, kode)
+		}
+		tersimpan, err := os.ReadFile(berkas)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if string(tersimpan) != keluar {
+			t.Errorf("%s basi; jalankan: go run . %s > %s", berkas, perintah, berkas)
+		}
+	}
+}
+
+func TestAntarpenilai(t *testing.T) {
+	keluar, _, kode := jalankanUji(t, "antarpenilai", t.TempDir())
+	if kode != 0 || !strings.Contains(keluar, "Belum ada lembar") {
+		t.Fatalf("folder kosong: kode %d, %q", kode, keluar)
+	}
+	_, galat, kode := jalankanUji(t, "antarpenilai", "folder-yang-tidak-ada")
+	if kode != 1 || galat == "" {
+		t.Fatalf("folder tidak ada: kode %d, %q", kode, galat)
+	}
+	// Lembar kosong yang tersimpan tidak dihitung sebagai penilai.
+	keluar, _, kode = jalankanUji(t, "antarpenilai")
+	if kode != 0 || !strings.Contains(keluar, "Belum ada lembar") {
+		t.Fatalf("folder penilaian: kode %d, %q", kode, keluar)
 	}
 }

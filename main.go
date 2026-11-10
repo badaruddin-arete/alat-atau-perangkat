@@ -11,6 +11,7 @@ import (
 
 	"github.com/badaruddin-arete/alat-atau-perangkat/kasus"
 	"github.com/badaruddin-arete/alat-atau-perangkat/laporan"
+	"github.com/badaruddin-arete/alat-atau-perangkat/penilai"
 	"github.com/badaruddin-arete/alat-atau-perangkat/rubrik"
 )
 
@@ -25,6 +26,9 @@ const bantuan = `Pemakaian: alat-atau-perangkat <perintah> [id]
   banding <id>  bandingkan kasus dengan pasangannya: apa yang didapat, apa yang tergeser
   kepekaan      seberapa tahan hasil bila bobot sumbu diubah
   laporan       laporan perbandingan lengkap dalam Markdown
+  lembar        lembar isian kosong (CSV) untuk penilai lain
+  kisah         kisah semua kasus untuk penilai, tanpa skor
+  antarpenilai  bandingkan skor penilai lain di folder penilaian (atau folder lain) dengan skor penyusun
   sumbu         delapan sumbu rubrik
   bantuan       pesan ini
 `
@@ -50,6 +54,27 @@ func jalankan(arg []string, keluar, galat io.Writer) int {
 		return 0
 	case "laporan":
 		laporan.Tulis(keluar, daftar, kasus.Pasangan(daftar))
+		return 0
+	case "lembar":
+		if err := penilai.TulisLembar(keluar, daftar); err != nil {
+			fmt.Fprintln(galat, err)
+			return 1
+		}
+		return 0
+	case "kisah":
+		penilai.TulisKisah(keluar, daftar)
+		return 0
+	case "antarpenilai":
+		dir := "penilaian"
+		if len(arg) > 1 {
+			dir = arg[1]
+		}
+		semua, err := penilai.MuatSemua(os.DirFS(dir), ".", daftar)
+		if err != nil {
+			fmt.Fprintln(galat, "gagal membaca penilai:", err)
+			return 1
+		}
+		cetakAntarpenilai(keluar, penilai.Bandingkan(semua, daftar, kasus.Pasangan(daftar)))
 		return 0
 	case "kepekaan":
 		cetakKepekaan(keluar, daftar)
@@ -160,5 +185,16 @@ func cetakKepekaan(w io.Writer, daftar []rubrik.Kasus) {
 	for _, r := range rentang {
 		fmt.Fprintf(w, "  %-17s %+.2f .. %+.2f  %5.1f%%\n", r.Kasus.ID, r.Min, r.Maks,
 			100*float64(r.GolonganTetap)/float64(r.JumlahBobot))
+	}
+}
+
+func cetakAntarpenilai(w io.Writer, rs []penilai.Ringkasan) {
+	if len(rs) == 0 {
+		fmt.Fprintln(w, "Belum ada lembar penilai lain. Lihat penilaian/PETUNJUK.md.")
+		return
+	}
+	fmt.Fprintf(w, "%-14s %6s %13s %14s %16s\n", "PENILAI", "KASUS", "SELISIH RATA", "BEDA >=2 POIN", "URUTAN PASANGAN")
+	for _, r := range rs {
+		fmt.Fprintf(w, "%-14s %6d %13.2f %8d/%-5d %10d/%d sama\n", r.Nama, r.Kasus, r.SelisihRata, r.JauhBerbeda, r.Sumbu, r.PasanganSama, r.PasanganDinilai)
 	}
 }
