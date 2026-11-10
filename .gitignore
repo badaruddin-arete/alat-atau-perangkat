@@ -1,0 +1,6 @@
+# Hasil build Go
+/alat-atau-perangkat
+*.exe
+*.test
+*.out
+coverage.*
