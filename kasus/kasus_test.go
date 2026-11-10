@@ -8,16 +8,16 @@ import (
 	"github.com/badaruddin-arete/alat-atau-perangkat/rubrik"
 )
 
-func TestDelapanKasusBawaanSah(t *testing.T) {
+func TestDuaBelasKasusBawaanSah(t *testing.T) {
 	daftar, err := Semua()
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(daftar) != 8 {
-		t.Fatalf("jumlah kasus = %d, ingin 8", len(daftar))
+	if len(daftar) != 12 {
+		t.Fatalf("jumlah kasus = %d, ingin 12", len(daftar))
 	}
-	if got := len(Pasangan(daftar)); got != 4 {
-		t.Errorf("jumlah pasangan = %d, ingin 4", got)
+	if got := len(Pasangan(daftar)); got != 6 {
+		t.Errorf("jumlah pasangan = %d, ingin 6", got)
 	}
 }
 
@@ -106,5 +106,34 @@ func TestMuatDariMengabaikanBerkasLain(t *testing.T) {
 	daftar, err := MuatDari(fs, "d")
 	if err != nil || len(daftar) != 2 {
 		t.Fatalf("dapat %d kasus, galat %v", len(daftar), err)
+	}
+}
+
+// Pasangan penguji harus benar-benar menantang: sisi perangkat menaikkan
+// setidaknya satu sumbu keterlibatan. Kalau tidak, labelnya menyesatkan.
+func TestPasanganPengujiBenarMenantang(t *testing.T) {
+	daftar, _ := Semua()
+	n := 0
+	for _, p := range Pasangan(daftar) {
+		if !p[0].Penguji && !p[1].Penguji {
+			continue
+		}
+		if p[0].Penguji != p[1].Penguji {
+			t.Errorf("pasangan %s/%s: tanda penguji harus di kedua sisi", p[0].ID, p[1].ID)
+		}
+		n++
+		b := rubrik.Bandingkan(p[0], p[1], nil)
+		naik := false
+		for _, s := range b.Lainnya {
+			if s.Sumbu.Kelompok == rubrik.Keterlibatan && s.Beda > 0 {
+				naik = true
+			}
+		}
+		if !naik {
+			t.Errorf("pasangan penguji %s/%s tidak menaikkan sumbu keterlibatan apa pun", p[0].ID, p[1].ID)
+		}
+	}
+	if n != 2 {
+		t.Errorf("jumlah pasangan penguji = %d, ingin 2", n)
 	}
 }

@@ -19,6 +19,7 @@ type Kasus struct {
 	ID        string               `json:"id"`
 	Nama      string               `json:"nama"`
 	Pasangan  string               `json:"pasangan"`
+	Penguji   bool                 `json:"penguji,omitempty"` // ditulis untuk menantang rubrik
 	Kisah     string               `json:"kisah"`
 	Penilaian map[string]Penilaian `json:"penilaian"`
 }

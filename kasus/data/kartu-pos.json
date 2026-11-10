@@ -1,0 +1,41 @@
+{
+  "id": "kartu-pos",
+  "nama": "Kartu pos dari perantauan",
+  "pasangan": "panggilan-video",
+  "penguji": true,
+  "kisah": "Gilang, perantau fiktif yang bekerja di luar negeri, dulu mengirim kartu pos kepada keluarganya setiap beberapa bulan. Kartu itu sampai berminggu-minggu kemudian dan biasanya dibaca ibunya seorang diri.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 1,
+      "alasan": "Menulis beberapa baris dan mengeposkan kartu tidak menuntut banyak tenaga."
+    },
+    "keterampilan": {
+      "skor": 1,
+      "alasan": "Ruang tulisnya kecil; hanya sedikit kecakapan menulis yang terpakai."
+    },
+    "keterlihatan": {
+      "skor": 2,
+      "alasan": "Gambar, tulisan tangan, dan perangko memperlihatkan asal dan penulisnya, tetapi jalur pos tidak terlihat."
+    },
+    "kebersamaan": {
+      "skor": 1,
+      "alasan": "Biasanya dibaca satu orang lalu ditempel di lemari; jarang menjadi alasan berkumpul."
+    },
+    "instan": {
+      "skor": 0,
+      "alasan": "Sampai dalam hitungan minggu."
+    },
+    "di_mana_saja": {
+      "skor": 1,
+      "alasan": "Butuh kantor pos di kedua ujung dan alamat yang tetap."
+    },
+    "aman": {
+      "skor": 3,
+      "alasan": "Risiko kecil: kartu bisa terlambat atau hilang."
+    },
+    "mudah": {
+      "skor": 2,
+      "alasan": "Menulis singkat, tetapi tetap perlu membeli perangko dan mengirim."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "panggilan-video",
+  "nama": "Panggilan video keluarga",
+  "pasangan": "kartu-pos",
+  "penguji": true,
+  "kisah": "Kini Gilang menelepon video setiap Minggu malam. Ponsel ibunya diletakkan di meja, dan adik-adik, bapak, serta tetangga yang mampir ikut berkerumun untuk melihat wajahnya dan menunjukkan rumah.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 1,
+      "alasan": "Memegang atau menyandarkan ponsel dan berbicara; tubuh hadir di layar, tetapi tidak bekerja."
+    },
+    "keterampilan": {
+      "skor": 1,
+      "alasan": "Hampir tidak ada kecakapan yang perlu dilatih selain menyalakan kamera."
+    },
+    "keterlihatan": {
+      "skor": 0,
+      "alasan": "Jaringan, server, dan cara gambar sampai sepenuhnya tersembunyi."
+    },
+    "kebersamaan": {
+      "skor": 3,
+      "alasan": "Seluruh keluarga berkumpul di depan satu ponsel setiap Minggu malam; panggilan ini menjadi ritual bersama."
+    },
+    "instan": {
+      "skor": 4,
+      "alasan": "Tersambung dalam hitungan detik."
+    },
+    "di_mana_saja": {
+      "skor": 3,
+      "alasan": "Bisa dari mana saja yang sinyalnya cukup kuat untuk video."
+    },
+    "aman": {
+      "skor": 4,
+      "alasan": "Tidak ada risiko fisik."
+    },
+    "mudah": {
+      "skor": 3,
+      "alasan": "Mudah, tetapi tetap perlu mencocokkan waktu di dua zona waktu."
+    }
+  }
+}

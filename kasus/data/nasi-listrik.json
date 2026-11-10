@@ -1,0 +1,41 @@
+{
+  "id": "nasi-listrik",
+  "nama": "Penanak nasi listrik",
+  "pasangan": "nasi-dandang",
+  "penguji": true,
+  "kisah": "Sejak memakai penanak nasi listrik, Bu Yati cukup mencuci beras, menakar air, dan menekan tombol. Waktu yang dulu dihabiskan di depan kompor kini dipakai untuk duduk makan bersama keluarga.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 1,
+      "alasan": "Masih mencuci beras dan menakar air, lalu menekan tombol."
+    },
+    "keterampilan": {
+      "skor": 1,
+      "alasan": "Takaran air tetap perlu dikira, tetapi hampir tidak ada yang bisa gagal."
+    },
+    "keterlihatan": {
+      "skor": 1,
+      "alasan": "Beras dan air terlihat saat dimasukkan, tetapi proses memasaknya tertutup di dalam panci."
+    },
+    "kebersamaan": {
+      "skor": 2,
+      "alasan": "Proses menanaknya sendiri tidak mengumpulkan orang, tetapi membebaskan pemasak untuk ikut makan bersama keluarga."
+    },
+    "instan": {
+      "skor": 2,
+      "alasan": "Tetap butuh sekitar tiga puluh menit, meski tanpa perlu dijaga."
+    },
+    "di_mana_saja": {
+      "skor": 3,
+      "alasan": "Bisa di ruangan mana pun yang ada colokan listrik."
+    },
+    "aman": {
+      "skor": 4,
+      "alasan": "Tidak ada api terbuka; alat mati atau menghangatkan sendiri ketika nasi matang."
+    },
+    "mudah": {
+      "skor": 4,
+      "alasan": "Sekali tekan, lalu ditinggal."
+    }
+  }
+}

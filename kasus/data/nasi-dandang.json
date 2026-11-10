@@ -1,0 +1,41 @@
+{
+  "id": "nasi-dandang",
+  "nama": "Menanak nasi di dandang",
+  "pasangan": "nasi-listrik",
+  "penguji": true,
+  "kisah": "Bu Yati di kampung fiktif Sidomulyo menanak nasi dengan dandang dan kukusan bambu di atas kompor. Beras dicuci, diaron, lalu dikukus sambil dijaga supaya tidak gosong. Selama itu ia berdiri sendirian di dapur, sementara keluarganya makan lebih dulu.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 3,
+      "alasan": "Mencuci, mengaron, memindahkan ke kukusan, dan mengaduk menuntut tangan dan tenaga di depan api."
+    },
+    "keterampilan": {
+      "skor": 3,
+      "alasan": "Takaran air, kapan mengangkat aron, dan lama mengukus dipelajari dari pengalaman dan mudah gagal."
+    },
+    "keterlihatan": {
+      "skor": 3,
+      "alasan": "Beras, uap, dan api terlihat; pelaku tahu persis apa yang terjadi pada nasinya."
+    },
+    "kebersamaan": {
+      "skor": 1,
+      "alasan": "Menanak dikerjakan satu orang sendirian; yang lain menunggu atau makan lebih dulu."
+    },
+    "instan": {
+      "skor": 1,
+      "alasan": "Butuh sekitar satu jam dengan perhatian."
+    },
+    "di_mana_saja": {
+      "skor": 1,
+      "alasan": "Butuh kompor, dandang, dan kukusan; terikat pada dapur."
+    },
+    "aman": {
+      "skor": 2,
+      "alasan": "Ada risiko tersiram uap atau nasi gosong bila lengah."
+    },
+    "mudah": {
+      "skor": 1,
+      "alasan": "Butuh perhatian berulang sepanjang proses."
+    }
+  }
+}
