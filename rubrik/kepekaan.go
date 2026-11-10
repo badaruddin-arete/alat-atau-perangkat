@@ -1,6 +1,9 @@
 package rubrik
 
-import "math"
+import (
+	"math"
+	"sort"
+)
 
 // PilihanBobot adalah nilai yang dicoba untuk setiap sumbu dalam uji kepekaan:
 // separuh, sama, atau dua kali lipat bobot bawaan.
@@ -117,4 +120,39 @@ func TitikBalik(fokal, lawan Kasus) int {
 		return -1
 	}
 	return perlu
+}
+
+// SumbuPenentu mengembalikan sumbu yang, bila dibuang sendirian (bobot 0),
+// membuat lawan tidak lagi lebih condong ke perangkat daripada sisi fokal.
+// Daftar kosong berarti kesimpulan pasangan tidak bergantung pada satu sumbu mana pun.
+func SumbuPenentu(fokal, lawan Kasus) []string {
+	var hasil []string
+	for _, s := range DaftarSumbu {
+		b := Bobot{s.Kode: 0}
+		if Indeks(lawan, b)-Indeks(fokal, b) <= 0 {
+			hasil = append(hasil, s.Kode)
+		}
+	}
+	return hasil
+}
+
+// median skor satu kelompok; empat skor, jadi rata-rata dua nilai tengah.
+func median(k Kasus, kel Kelompok) float64 {
+	var xs []int
+	for _, s := range SumbuKelompok(kel) {
+		xs = append(xs, k.Penilaian[s.Kode].Skor)
+	}
+	sort.Ints(xs)
+	n := len(xs)
+	if n%2 == 1 {
+		return float64(xs[n/2])
+	}
+	return float64(xs[n/2-1]+xs[n/2]) / 2
+}
+
+// IndeksMedian sama dengan Indeks tetapi memakai median, bukan rata-rata.
+// Median hanya mengandaikan skor bisa diurutkan, bukan bahwa jarak 1 ke 2
+// sama dengan jarak 3 ke 4, sehingga lebih setia pada skala peringkat.
+func IndeksMedian(k Kasus) float64 {
+	return (median(k, Ketersediaan) - median(k, Keterlibatan)) / SkorMaks
 }

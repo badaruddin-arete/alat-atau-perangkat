@@ -63,3 +63,36 @@ func TestTitikBalik(t *testing.T) {
 		}
 	}
 }
+
+func TestSumbuPenentu(t *testing.T) {
+	// Seragam dan berjauhan: tidak ada satu sumbu pun yang menentukan.
+	if got := SumbuPenentu(kasusDua("a", 4, 0), kasusDua("b", 0, 4)); len(got) != 0 {
+		t.Errorf("ingin kosong, dapat %v", got)
+	}
+	// Hanya "mudah" yang membedakan: membuangnya menyamakan keduanya.
+	a, b := kasusDua("a", 2, 2), kasusDua("b", 2, 2)
+	b.Penilaian["mudah"] = Penilaian{4, "uji"}
+	got := SumbuPenentu(a, b)
+	if len(got) != 1 || got[0] != "mudah" {
+		t.Errorf("ingin [mudah], dapat %v", got)
+	}
+}
+
+func TestIndeksMedian(t *testing.T) {
+	k := kasusDua("a", 0, 0)
+	// keterlibatan 0,0,0,4 -> median 0; rata-rata 1.
+	k.Penilaian["tubuh"] = Penilaian{4, "uji"}
+	// ketersediaan 1,3,3,3 -> median 3; rata-rata 2,5.
+	for kode, skor := range map[string]int{"instan": 1, "di_mana_saja": 3, "aman": 3, "mudah": 3} {
+		k.Penilaian[kode] = Penilaian{skor, "uji"}
+	}
+	if got := IndeksMedian(k); !dekat(got, 0.75) {
+		t.Errorf("IndeksMedian = %v, ingin 0.75", got)
+	}
+	if got := Indeks(k, nil); !dekat(got, 0.375) {
+		t.Errorf("Indeks = %v, ingin 0.375", got)
+	}
+	if got := IndeksMedian(kasusDua("b", 3, 1)); !dekat(got, -0.5) {
+		t.Errorf("IndeksMedian seragam = %v", got)
+	}
+}
