@@ -1,0 +1,40 @@
+{
+  "id": "pesan-instan",
+  "nama": "Pesan instan di grup keluarga",
+  "pasangan": "surat-tangan",
+  "kisah": "Laras juga ada di grup percakapan keluarga. Ia mengirim kabar, foto, dan pesan suara kepada neneknya kapan saja, dan balasan bisa datang dalam hitungan detik.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 0,
+      "alasan": "Hanya mengetik atau menekan tombol rekam di layar."
+    },
+    "keterampilan": {
+      "skor": 1,
+      "alasan": "Ada sedikit kecakapan memilih kata dan waktu, tetapi praktiknya tidak menuntut latihan."
+    },
+    "keterlihatan": {
+      "skor": 0,
+      "alasan": "Jaringan, server, dan cara pesan sampai sepenuhnya tersembunyi."
+    },
+    "kebersamaan": {
+      "skor": 2,
+      "alasan": "Grup keluarga mengumpulkan banyak orang sekaligus; kebersamaan ini nyata, meski tipis dan terputus-putus."
+    },
+    "instan": {
+      "skor": 4,
+      "alasan": "Terkirim dan bisa dibalas dalam hitungan detik."
+    },
+    "di_mana_saja": {
+      "skor": 4,
+      "alasan": "Bisa dari mana saja selama ada sinyal."
+    },
+    "aman": {
+      "skor": 4,
+      "alasan": "Tidak ada risiko fisik; pesan jarang hilang."
+    },
+    "mudah": {
+      "skor": 4,
+      "alasan": "Hampir tanpa usaha dan bisa dilakukan sambil mengerjakan hal lain."
+    }
+  }
+}

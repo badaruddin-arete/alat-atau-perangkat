@@ -1,0 +1,40 @@
+{
+  "id": "pemanas-listrik",
+  "nama": "Pemanas ruangan listrik",
+  "pasangan": "tungku-kayu",
+  "kisah": "Di vila sewaan fiktif di dataran tinggi yang sama, tamu cukup memutar tombol pemanas ruangan listrik. Kamar hangat dalam beberapa menit, dan setiap tamu mengatur suhu kamarnya sendiri.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 0,
+      "alasan": "Hanya memutar tombol atau menekan remote."
+    },
+    "keterampilan": {
+      "skor": 0,
+      "alasan": "Tidak ada kecakapan yang perlu dilatih selain mengatur suhu."
+    },
+    "keterlihatan": {
+      "skor": 0,
+      "alasan": "Listrik, pembangkit, dan elemen pemanas tidak terlihat; panas datang tanpa tanda asal-usulnya."
+    },
+    "kebersamaan": {
+      "skor": 0,
+      "alasan": "Setiap kamar punya pemanasnya sendiri sehingga tidak ada alasan untuk berkumpul."
+    },
+    "instan": {
+      "skor": 4,
+      "alasan": "Kamar hangat dalam beberapa menit."
+    },
+    "di_mana_saja": {
+      "skor": 3,
+      "alasan": "Bisa di kamar mana pun, asal ada listrik yang cukup."
+    },
+    "aman": {
+      "skor": 3,
+      "alasan": "Tanpa asap dan api terbuka, meski tetap ada risiko korsleting bila kabel rusak."
+    },
+    "mudah": {
+      "skor": 4,
+      "alasan": "Cukup sekali putar, lalu dilupakan."
+    }
+  }
+}

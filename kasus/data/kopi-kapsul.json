@@ -1,0 +1,40 @@
+{
+  "id": "kopi-kapsul",
+  "nama": "Kopi kapsul di meja kantor",
+  "pasangan": "kopi-tubruk",
+  "kisah": "Di kantor fiktif tempat Dimas bekerja, ada mesin kopi kapsul. Ia memasukkan satu kapsul, menekan tombol, dan dalam setengah menit cangkirnya terisi, lalu ia kembali ke layar.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 0,
+      "alasan": "Hanya memasukkan kapsul dan menekan satu tombol."
+    },
+    "keterampilan": {
+      "skor": 0,
+      "alasan": "Tidak ada kecakapan yang perlu dilatih; hasilnya sama siapa pun yang menekan."
+    },
+    "keterlihatan": {
+      "skor": 0,
+      "alasan": "Biji, gilingan, dan suhu tersembunyi di dalam kapsul dan mesin; asal kopi tidak diketahui pemakai."
+    },
+    "kebersamaan": {
+      "skor": 1,
+      "alasan": "Kadang ada obrolan singkat di dekat mesin, tetapi praktiknya dirancang untuk sendiri dan cepat."
+    },
+    "instan": {
+      "skor": 4,
+      "alasan": "Cangkir terisi dalam sekitar tiga puluh detik."
+    },
+    "di_mana_saja": {
+      "skor": 3,
+      "alasan": "Ada di banyak kantor dan rumah, tetapi butuh listrik dan kapsul yang cocok dengan mesinnya."
+    },
+    "aman": {
+      "skor": 4,
+      "alasan": "Air panas tertutup di dalam mesin; hampir tidak ada risiko gagal atau kotor."
+    },
+    "mudah": {
+      "skor": 4,
+      "alasan": "Hampir tanpa usaha dan bisa dilakukan sambil memikirkan hal lain."
+    }
+  }
+}

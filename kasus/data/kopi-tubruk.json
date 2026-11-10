@@ -1,0 +1,40 @@
+{
+  "id": "kopi-tubruk",
+  "nama": "Kopi tubruk di teras",
+  "pasangan": "kopi-kapsul",
+  "kisah": "Setiap pagi Bu Ratmi, warga Dusun Karangwangi yang fiktif, menggiling biji kopi sangrai dari kebun tetangga dengan gilingan tangan, merebus air di ceret, menyeduh kopi di gelas, lalu menunggu ampasnya turun sambil mengobrol dengan siapa pun yang lewat di teras.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 3,
+      "alasan": "Menggiling dengan tangan, menuang air mendidih, dan menunggu ampas turun melibatkan tangan, penciuman, dan kesabaran."
+    },
+    "keterampilan": {
+      "skor": 3,
+      "alasan": "Takaran kopi, kasar halusnya gilingan, dan lama menunggu dipelajari bertahun-tahun dan terus bisa diperbaiki."
+    },
+    "keterlihatan": {
+      "skor": 3,
+      "alasan": "Biji, gilingan, air, dan ampas terlihat jelas; asal biji diketahui karena dari kebun tetangga."
+    },
+    "kebersamaan": {
+      "skor": 4,
+      "alasan": "Kopi diseduh di teras dan disuguhkan kepada tetangga, sehingga menjadi alasan berkumpul setiap pagi."
+    },
+    "instan": {
+      "skor": 1,
+      "alasan": "Dari menggiling sampai ampas turun butuh sekitar lima belas menit."
+    },
+    "di_mana_saja": {
+      "skor": 2,
+      "alasan": "Butuh ceret, air mendidih, dan biji; bisa dibawa bepergian, tetapi tidak di sembarang tempat."
+    },
+    "aman": {
+      "skor": 2,
+      "alasan": "Ada risiko tersiram air panas dan ampas ikut terminum bila tergesa-gesa."
+    },
+    "mudah": {
+      "skor": 1,
+      "alasan": "Butuh perhatian penuh pada beberapa langkah; tidak bisa dikerjakan sambil lalu."
+    }
+  }
+}

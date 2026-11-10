@@ -1,0 +1,40 @@
+{
+  "id": "sayur-aplikasi",
+  "nama": "Belanja sayur lewat aplikasi",
+  "pasangan": "kebun-pekarangan",
+  "kisah": "Tetangga Bu Wening, Raka, memesan sayur lewat aplikasi belanja fiktif. Ia memilih dari daftar, membayar di ponsel, dan kurir mengantar ke depan pintu dalam satu jam.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 0,
+      "alasan": "Hanya menggulir dan mengetuk layar; kurir yang berjalan."
+    },
+    "keterampilan": {
+      "skor": 1,
+      "alasan": "Memilih sayur dari foto butuh sedikit pengalaman, tetapi tidak ada yang perlu dilatih."
+    },
+    "keterlihatan": {
+      "skor": 1,
+      "alasan": "Ada label asal kebun di aplikasi, tetapi rantai dari kebun sampai pintu tidak terlihat."
+    },
+    "kebersamaan": {
+      "skor": 0,
+      "alasan": "Dipesan dan diterima sendiri; tidak ada kebiasaan bersama yang terbentuk."
+    },
+    "instan": {
+      "skor": 3,
+      "alasan": "Sampai dalam sekitar satu jam."
+    },
+    "di_mana_saja": {
+      "skor": 4,
+      "alasan": "Sayur apa pun tersedia kapan saja, lepas dari musim dan tempat."
+    },
+    "aman": {
+      "skor": 3,
+      "alasan": "Risiko kecil: sayur kadang layu atau tertukar."
+    },
+    "mudah": {
+      "skor": 4,
+      "alasan": "Hampir tanpa usaha."
+    }
+  }
+}

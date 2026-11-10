@@ -1,0 +1,40 @@
+{
+  "id": "surat-tangan",
+  "nama": "Surat tulisan tangan",
+  "pasangan": "pesan-instan",
+  "kisah": "Laras, mahasiswa fiktif di kota, menulis surat kepada neneknya di kampung sebulan sekali. Ia memilih kertas, menulis dengan pulpen, membeli perangko di kantor pos, lalu menunggu balasan sekitar dua minggu.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 2,
+      "alasan": "Menulis dengan tangan, melipat kertas, dan berjalan ke kantor pos melibatkan tubuh, tetapi tidak berat."
+    },
+    "keterampilan": {
+      "skor": 3,
+      "alasan": "Menulis surat yang runtut dan hangat tanpa bisa menghapus adalah kecakapan yang tumbuh."
+    },
+    "keterlihatan": {
+      "skor": 3,
+      "alasan": "Kertas, tulisan, perangko, dan jalur pos dapat dibayangkan; tulisan tangan memperlihatkan penulisnya."
+    },
+    "kebersamaan": {
+      "skor": 3,
+      "alasan": "Surat dibacakan di rumah nenek dan disimpan; berkirim surat bulanan menjadi kebiasaan bersama."
+    },
+    "instan": {
+      "skor": 0,
+      "alasan": "Sampai dan berbalas dalam hitungan minggu."
+    },
+    "di_mana_saja": {
+      "skor": 1,
+      "alasan": "Butuh kertas, kantor pos, dan alamat; tidak bisa dikirim dari mana saja kapan saja."
+    },
+    "aman": {
+      "skor": 3,
+      "alasan": "Risiko kecil: surat bisa terlambat atau hilang, tetapi tidak membahayakan."
+    },
+    "mudah": {
+      "skor": 1,
+      "alasan": "Butuh waktu, tenaga, dan perhatian untuk menulis dan mengirim."
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "tungku-kayu",
+  "nama": "Tungku kayu di dapur",
+  "pasangan": "pemanas-listrik",
+  "kisah": "Di rumah keluarga Pak Darmo di dataran tinggi fiktif Gunungsari, malam terasa dingin. Kayu dikumpulkan dari kebun pada sore hari, tungku dinyalakan setelah magrib, dan keluarga duduk mengelilinginya sambil menghangatkan badan dan merebus air.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 4,
+      "alasan": "Mengumpulkan dan membelah kayu, meniup api, dan menjaga bara menuntut tenaga dan indra."
+    },
+    "keterampilan": {
+      "skor": 3,
+      "alasan": "Memilih kayu yang kering, menyusun api, dan mengatur bara adalah kecakapan yang dipelajari dari orang tua."
+    },
+    "keterlihatan": {
+      "skor": 4,
+      "alasan": "Kayu, api, asap, dan abu terlihat; asal bahan bakar dari kebun sendiri dan musim terasa."
+    },
+    "kebersamaan": {
+      "skor": 4,
+      "alasan": "Tungku menjadi pusat ruangan; keluarga berkumpul dan bercerita di sekitarnya setiap malam."
+    },
+    "instan": {
+      "skor": 0,
+      "alasan": "Butuh waktu lama sampai api cukup besar dan ruangan hangat."
+    },
+    "di_mana_saja": {
+      "skor": 1,
+      "alasan": "Terikat pada dapur, tersedianya kayu kering, dan cuaca."
+    },
+    "aman": {
+      "skor": 1,
+      "alasan": "Ada asap, risiko luka bakar, dan bahaya kebakaran bila lengah."
+    },
+    "mudah": {
+      "skor": 0,
+      "alasan": "Butuh kerja dan perhatian sepanjang malam."
+    }
+  }
+}

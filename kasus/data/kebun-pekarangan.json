@@ -1,0 +1,40 @@
+{
+  "id": "kebun-pekarangan",
+  "nama": "Kebun sayur di pekarangan",
+  "pasangan": "sayur-aplikasi",
+  "kisah": "Bu Wening di perumahan fiktif Griya Asri menanam kangkung, cabai, dan bayam di pekarangan. Ia menyiram setiap sore, belajar mengusir ulat, dan menukar hasil panen dengan tetangga.",
+  "penilaian": {
+    "tubuh": {
+      "skor": 4,
+      "alasan": "Mencangkul, menyiram, dan memanen setiap hari melibatkan tangan dan tenaga."
+    },
+    "keterampilan": {
+      "skor": 3,
+      "alasan": "Mengenali tanah, hama, dan waktu tanam dipelajari lewat gagal dan berhasil."
+    },
+    "keterlihatan": {
+      "skor": 4,
+      "alasan": "Seluruh proses dari benih sampai panen terlihat langsung oleh penanam."
+    },
+    "kebersamaan": {
+      "skor": 3,
+      "alasan": "Hasil panen ditukar dengan tetangga dan obrolan tentang tanaman menjadi kebiasaan di gang."
+    },
+    "instan": {
+      "skor": 0,
+      "alasan": "Butuh berminggu-minggu sejak tanam sampai panen."
+    },
+    "di_mana_saja": {
+      "skor": 0,
+      "alasan": "Terikat pada pekarangan, musim, dan cuaca."
+    },
+    "aman": {
+      "skor": 2,
+      "alasan": "Panen bisa gagal karena hama atau hujan, meski tidak membahayakan."
+    },
+    "mudah": {
+      "skor": 1,
+      "alasan": "Butuh kerja rutin dan perhatian setiap hari."
+    }
+  }
+}
