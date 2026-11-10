@@ -45,16 +45,27 @@ func Tulis(w io.Writer, daftar []rubrik.Kasus, pasangan [][2]rubrik.Kasus) {
 
 	fmt.Fprintln(w, "\n## Spektrum")
 	fmt.Fprintln(w)
-	fmt.Fprintln(w, "| Kasus | Keterlibatan | Ketersediaan | Indeks | Golongan |")
-	fmt.Fprintln(w, "|---|---:|---:|---:|---|")
+	fmt.Fprintln(w, "| Kasus | Keterlibatan | Ketersediaan | Indeks | Golongan | Indeks median |")
+	fmt.Fprintln(w, "|---|---:|---:|---:|---|---:|")
 	for _, h := range hasil {
-		fmt.Fprintf(w, "| %s | %s | %s | %s | %s |\n", sel(h.Kasus.Nama), rata(h.Keterlibatan), rata(h.Ketersediaan), angka(h.Indeks), h.Golongan)
+		nama := sel(h.Kasus.Nama)
+		if h.Kasus.Penguji {
+			nama += " *"
+		}
+		fmt.Fprintf(w, "| %s | %s | %s | %s | %s | %s |\n", nama, rata(h.Keterlibatan), rata(h.Ketersediaan), angka(h.Indeks), h.Golongan, angka(rubrik.IndeksMedian(h.Kasus)))
 	}
+
+	fmt.Fprintln(w)
+	fmt.Fprintln(w, "Tanda * menandai kasus penguji: pasangan yang sengaja ditulis untuk menantang rubrik, karena sisi perangkatnya bisa menambah kebersamaan.")
 
 	fmt.Fprintln(w, "\n## Pasangan: apa yang didapat, apa yang tergeser")
 	for _, p := range pasangan {
 		b := rubrik.Bandingkan(p[0], p[1], nil)
-		fmt.Fprintf(w, "\n### %s → %s\n\n", b.Fokal.Kasus.Nama, b.Lawan.Kasus.Nama)
+		judul := b.Fokal.Kasus.Nama + " → " + b.Lawan.Kasus.Nama
+		if b.Fokal.Kasus.Penguji || b.Lawan.Kasus.Penguji {
+			judul += " (penguji)"
+		}
+		fmt.Fprintf(w, "\n### %s\n\n", judul)
 		fmt.Fprintf(w, "Indeks %s → %s. Titik balik: %d perubahan skor satu poin.\n\n", angka(b.Fokal.Indeks), angka(b.Lawan.Indeks), rubrik.TitikBalik(b.Fokal.Kasus, b.Lawan.Kasus))
 		fmt.Fprintln(w, "| Arah | Sumbu | Skor | Alasan di sisi perangkat |")
 		fmt.Fprintln(w, "|---|---|---|---|")
@@ -95,5 +106,24 @@ func Tulis(w io.Writer, daftar []rubrik.Kasus, pasangan [][2]rubrik.Kasus) {
 			}
 		}
 		fmt.Fprintf(w, "| %s | %s | %s sampai %s | %s | %s |\n", sel(r.Kasus.Nama), angka(r.Bawaan), angka(r.Min), angka(r.Maks), persen(r.GolonganTetap, r.JumlahBobot), strings.Join(sebar, "; "))
+	}
+
+	fmt.Fprintln(w, "\n## Kepekaan terhadap sumbu dan cara merangkum")
+	fmt.Fprintln(w)
+	fmt.Fprintln(w, "Sumbu penentu: sumbu yang bila dibuang sendirian membuat urutan pasangan hilang. Median: indeks dihitung dengan median, bukan rata-rata, karena skor 0 sampai 4 sebenarnya peringkat.")
+	fmt.Fprintln(w)
+	fmt.Fprintln(w, "| Pasangan | Sumbu penentu | Indeks median | Urutan dengan median |")
+	fmt.Fprintln(w, "|---|---|---|---|")
+	for _, p := range kp {
+		penentu := "tidak ada"
+		if s := rubrik.SumbuPenentu(p.Fokal, p.Lawan); len(s) > 0 {
+			penentu = strings.Join(s, ", ")
+		}
+		mf, ml := rubrik.IndeksMedian(p.Fokal), rubrik.IndeksMedian(p.Lawan)
+		urut := "bertahan"
+		if ml <= mf {
+			urut = "hilang"
+		}
+		fmt.Fprintf(w, "| %s → %s | %s | %s → %s | %s |\n", sel(p.Fokal.Nama), sel(p.Lawan.Nama), penentu, angka(mf), angka(ml), urut)
 	}
 }

@@ -21,13 +21,13 @@ func tulisBawaan(t *testing.T) string {
 
 func TestLaporanMemuatSemuaBagian(t *testing.T) {
 	isi := tulisBawaan(t)
-	for _, kata := range []string{"## Spektrum", "## Pasangan", "## Kepekaan terhadap bobot", "6561 kombinasi", "Titik balik"} {
+	for _, kata := range []string{"## Spektrum", "## Pasangan", "## Kepekaan terhadap bobot", "6561 kombinasi", "Titik balik", "## Kepekaan terhadap sumbu", "(penguji)", "berlawanan dugaan"} {
 		if !strings.Contains(isi, kata) {
 			t.Errorf("laporan tidak memuat %q", kata)
 		}
 	}
-	if n := strings.Count(isi, "\n### "); n != 4 {
-		t.Errorf("jumlah bagian pasangan = %d, ingin 4", n)
+	if n := strings.Count(isi, "\n### "); n != 6 {
+		t.Errorf("jumlah bagian pasangan = %d, ingin 6", n)
 	}
 }
 
