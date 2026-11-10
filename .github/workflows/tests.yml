@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ["1.23", "1.24"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Periksa format (gofmt)
+        run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
+      - name: Periksa mutu (go vet)
+        run: go vet ./...
+      - name: Uji
+        run: go test -v ./...
